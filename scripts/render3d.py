@@ -61,5 +61,5 @@ def obj_to_xyzt(obj_filename):
 
 if __name__ == '__main__':
     # Example usage
-    x, y, z, tri = obj_to_xyzt('src/tests/manual_tests/resources/bunny.obj')
+    x, y, z, tri = obj_to_xyzt('resources/bunny.obj')
     render_still_trimesh(x, y, z, tri, 'test.png')
