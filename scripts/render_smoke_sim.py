@@ -11,9 +11,10 @@ def print_help():
 def main(argv):
     input_vol_file = ''
     output_img = ''
+    template_xml = ''
 
     try:
-        opts, args = getopt.getopt(argv, 'hi:o:', ['input=', 'output='])
+        opts, args = getopt.getopt(argv, 'hi:o:t:', ['input=', 'output=', 'template='])
     except:
         print_help()
         quit(-1)
@@ -26,7 +27,9 @@ def main(argv):
             input_vol_file = arg
         elif opt in ['-o', '--output']:
             output_img = arg
-    if input_vol_file == '' or output_img == '':
+        elif opt in ['-t', '--template']:
+            template_xml = arg
+    if input_vol_file == '' or output_img == '' or template_xml == '':
         print_help()
         quit(-1)
 
@@ -35,7 +38,7 @@ def main(argv):
     if mitsuba_home:
         mitsuba_exe = os.path.join(mitsuba_home, mitsuba_exe)
 
-    args = [mitsuba_exe, '-o', output_img, '-Dvolfile=' + abs_input_vol_file, 'render/rising_smoke.xml']
+    args = [mitsuba_exe, '-o', output_img, '-Dvolfile=' + input_vol_file, template_xml]
 
     os.system(' '.join(args))
 
