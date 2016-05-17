@@ -6,7 +6,7 @@ import sys
 import utils
 
 def print_help():
-    print 'render_smoke_sim.py -i <input_vol_file> -o <output_img>'
+    print 'render_smoke_sim.py -i <input_vol_file> -o <output_img> -t <template_xml>'
 
 def main(argv):
     input_vol_file = ''
