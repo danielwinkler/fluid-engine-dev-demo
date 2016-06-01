@@ -14,7 +14,7 @@ def main(argv):
     template_xml = ''
 
     try:
-        opts, args = getopt.getopt(argv, 'hi:o:', ['input=', 'output='])
+        opts, args = getopt.getopt(argv, 'hi:o:t:', ['input=', 'output=', 'template='])
     except:
         print_help()
         quit(-1)
