@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <scene version="0.5.0">
-	<integrator type="volpath_simple">
-		<integer name="maxDepth" value="10"/>
+	<integrator type="adaptive">
+		<integrator type="volpath_simple">
+			<integer name="maxDepth" value="10"/>
+		</integrator>
 	</integrator>
 
 	<sensor type="perspective">
@@ -11,11 +13,12 @@
 		<string name="fovAxis" value="x"/>
 		<transform name="toWorld">
 			<scale x="-1"/>
-			<lookat target="1.88922, 0.95, 1.88922" origin="2.5, 1.28, 2.5" up="-0.356304, 0.863768, -0.356304"/>
+
+			<lookat target="1.83946, 0.923114, 1.83946" origin="2.5, 1.28, 2.5" up="-0.252357, 0.934148, -0.252357"/>
 		</transform>
 
-		<sampler type="ldsampler">
-			<integer name="sampleCount" value="256"/>
+		<sampler type="independent">
+			<integer name="sampleCount" value="16"/>
 		</sampler>
 
 		<film type="ldrfilm">
@@ -48,6 +51,7 @@
 		<string name="filename" value="$objfile"/>
 		<integer name="shapeIndex" value="2"/>
 		<transform name="toWorld"/>
+
 		<bsdf type="dielectric">
 			<string name="intIOR" value="water"/>
 			<string name="extIOR" value="air"/>
