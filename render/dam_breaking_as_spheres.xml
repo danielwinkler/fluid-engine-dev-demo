@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <scene version="0.5.0">
-    <integrator type="volpath_simple">
-        <integer name="maxDepth" value="20"/>
+    <integrator type="path">
+        <integer name="maxDepth" value="10"/>
     </integrator>
 
     <sensor type="perspective">
@@ -16,7 +16,7 @@
 
         <sampler type="stratified">
             <integer name="dimension" value="6"/>
-            <integer name="sampleCount" value="512"/>
+            <integer name="sampleCount" value="64"/>
         </sampler>
 
         <film type="ldrfilm">
@@ -44,20 +44,6 @@
     <bsdf type="diffuse" id="diffmat">
         <rgb name="reflectance" value="0.4 0.4 0.4"/>
     </bsdf>
-
-    <shape type="obj" id="water">
-        <string name="filename" value="$objfile"/>
-        <integer name="shapeIndex" value="2"/>
-        <bsdf type="dielectric">
-            <float name="intIOR" value="1.2"/>
-            <float name="extIOR" value="1.0"/>
-        </bsdf>
-
-        <medium name="interior" type="homogeneous">
-            <rgb name="sigmaS" value="0, 0, 0"/>
-            <rgb name="sigmaA" value="4, 1.7, 1.5"/>
-        </medium>
-    </shape>
 
     <shape type="obj" id="column1">
         <string name="filename" value="objects/cylinder.obj"/>
@@ -107,4 +93,16 @@
 
         <ref name="bsdf" id="diffmat"/>
     </shape>
+
+    <shape type="shapegroup" id="spheres">
+        <shape type="sphere">
+            <point name="center" x="0" y="0" z="0"/>
+            <float name="radius" value="0.01"/>
+
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0.1 0.2 0.6"/>
+            </bsdf>
+        </shape>
+    </shape>
+    <include filename="$xmlfile"/>
 </scene>
