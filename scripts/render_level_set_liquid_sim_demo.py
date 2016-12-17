@@ -1,6 +1,6 @@
 import os
 
-example = 3
+example = 4
 xml = "render/viscosity.xml"
 
 for i in range(0, 240):

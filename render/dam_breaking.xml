@@ -27,7 +27,7 @@
             <string name="pixelFormat" value="rgb"/>
             <string name="toneMappingMethod" value="gamma"/>
             <string name="tonemapMethod" value="gamma"/>
-            <integer name="width" value="800"/>
+            <integer name="width" value="1024"/>
 
             <rfilter type="catmullrom"/>
         </film>
